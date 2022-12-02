@@ -1,0 +1,112 @@
+:root {
+    --background-color: #94a3b8;
+    --dialog-color: #e2e8f0;
+    --button-border: #1e293b;
+    --board-color: #cbd5e1;
+    --border: 3px solid black
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 60%;
+    text-align: center;
+}
+
+#board {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--board-color);
+    height: 100%;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+}
+
+.board-square {
+    display: flex;
+    padding-block: 5%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.b-right-bottom {
+    border-right: var(--border);
+    border-bottom: var(--border);
+}
+
+.b-bottom {
+    border-bottom: var(--border);
+}
+
+.b-right {
+    border-right: var(--border);
+}
+
+.icon {
+    width: 60%;
+    margin: 0;
+}
+
+.icon-small {
+    width: 30%;
+    padding: 9px;
+}
+
+#restart-btn {
+    padding: 6px;
+    margin-top: 30px;
+    width: 200px;
+    font-size: 1.7rem;
+}
+
+#overlay {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#overlay.active {
+    display: block;
+}
+
+#letter-dialog {
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-in;
+    background-color: var(--dialog-color);
+    text-align: center;
+    width: 300px;
+    border-radius: 20px;
+}
+
+#letter-dialog.active {
+    transform: translate(-50%, -50%) scale(1);
+}
